@@ -47,7 +47,7 @@ jobs:
             context: .
             push: true
             no-cache: true
-            tags: ${{ secrets.DOCKER_USERNAME }}/my-calc-image:latest
+            tags: ${{ secrets.DOCKER_USERNAME }}/calculator.api:latest
 
     deploy:
       name: Deploy on Render
