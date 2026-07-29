@@ -1,12 +1,6 @@
-FROM python:3.14-slim
-
-WORKDIR /myproject
-
+FROM python:3.14.6-slim
+WORKDIR /app
 COPY requirements.txt .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY app.py .
-COPY calculator.py .
-
-CMD ["python", "app.py"]
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["gunicorn", "app:app"]
